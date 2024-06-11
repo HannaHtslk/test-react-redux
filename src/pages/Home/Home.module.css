@@ -31,6 +31,8 @@
 
   color: var(--white);
   font-weight: 200;
+  font-size: 14px;
+  line-height: 20px;
 
   transition: background-color var(--transition-pattern);
 }
