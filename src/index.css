@@ -1,6 +1,17 @@
+:root {
+  --blue: rgba(52, 112, 255, 1);
+  --hover-blue: rgba(11, 68, 205, 1);
+  --gray: rgba(18, 20, 23, 0.5);
+  --black: rgba(18, 20, 23, 1);
+  --white: rgba(255, 255, 255, 1);
+  --font-family: 'Monrope', sans-serif;
+  --transition-pattern: 0.1s ease-in;
+}
+
 body {
-  font-family: sans-serif;
   line-height: 1.5;
+  font-family: var(--font-family);
+  color: var(--black);
 }
 
 h1,
@@ -17,9 +28,14 @@ ul,
 ol {
   margin: 0;
   padding: 0;
+  list-style-type: none;
 }
 
 img {
   display: block;
   max-width: 100%;
+}
+
+input {
+  outline: none;
 }
