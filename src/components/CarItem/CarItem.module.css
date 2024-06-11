@@ -1,0 +1,14 @@
+.card {
+  min-height: 426px;
+  max-width: 274px;
+}
+.imgWrapper {
+  width: 100%;
+  height: 268px;
+  outline: 1px solid rebeccapurple;
+
+  border-radius: 6px;
+}
+
+.img {
+}
