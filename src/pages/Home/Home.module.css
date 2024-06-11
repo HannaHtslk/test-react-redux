@@ -1,0 +1,41 @@
+.container {
+  background-color: var(--white);
+  background-image: url('../../../public/background.webp');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  width: 100%;
+  height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.title {
+  color: darkblue;
+  font-size: 62px;
+  text-transform: uppercase;
+  margin-top: 100px;
+  font-weight: 300;
+}
+
+.button {
+  cursor: pointer;
+  border: none;
+  border-color: transparent;
+  background-color: var(--blue);
+  border-radius: 12px;
+  min-width: 100px;
+  min-height: 40px;
+
+  color: var(--white);
+  font-weight: 200;
+
+  transition: background-color var(--transition-pattern);
+}
+
+.button:hover,
+.button:focus {
+  background-color: var(--hover-blue);
+}
