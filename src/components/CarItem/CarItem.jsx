@@ -1,40 +1,66 @@
 import Button from '../Button/Button';
 import s from './CarItem.module.css';
 
-const CarItem = () => {
+const CarItem = ({ car }) => {
+  const {
+    id,
+    year,
+    make,
+    model,
+    type,
+    img,
+    description,
+    fuelConsumption,
+    engineSize,
+    accessories,
+    functionalities,
+    rentalPrice,
+    rentalCompany,
+    address,
+    rentalConditions,
+    mileage,
+  } = car;
+
+  const array = address.split(',');
+  const city = array[1];
+  const country = array[2];
+  const benefit = accessories[0];
+
   return (
     <div className={s.card}>
-      <img className={s.img} src="../../../public/bg.webp" alt="testPhoto" />
+      <img className={s.img} src={img} alt={make} />
       <div className={s.content}>
         <div className={s.model}>
-          <p className={s.title}>BMW, 2009</p>
-          <p className={s.title}>$50</p>
+          <p className={s.title}>
+            {make}, {year}
+          </p>
+          <p className={s.title}>{rentalPrice}</p>
         </div>
         <div className={s.details}>
           <div>
             <ul className={s.list}>
               <li className={s.item}>
-                <p className={s.feature}>Kharkiv</p>
+                <p className={s.feature}>{city}</p>
               </li>
               <li className={s.item}>
-                <p className={s.feature}>Ukraine</p>
+                <p className={s.feature}>{country}</p>
               </li>
               <li className={s.item}>
-                <p className={s.feature}>Elite Car Rentals</p>
+                <p className={s.feature}>{rentalCompany}</p>
               </li>
             </ul>
             <ul className={s.list}>
               <li className={s.item}>
-                <p className={s.feature}>SUV</p>
+                <p className={s.feature}>{type}</p>
               </li>
               <li className={s.item}>
-                <p className={s.feature}>Navigator L</p>
+                <p className={s.feature}>{model}</p>
               </li>
               <li className={s.item}>
-                <p className={s.feature}>9596</p>
+                <p className={s.feature}>{id}</p>
               </li>
               <li className={s.item}>
-                <p className={s.feature}>Leather seats</p>
+                <p className={s.feature}>benefit</p>
               </li>
             </ul>
           </div>

@@ -1,6 +1,9 @@
 .outletWrapper {
-  min-height: calc(100vh - 60px);
-  min-width: 1280px;
+  max-height: calc(100vh - 60px);
+  min-width: 1184px;
   width: 100%;
   padding: 0px 20px;
+  display: flex;
+  justify-content: center;
+  /* overflow-y: scroll; */
 }
