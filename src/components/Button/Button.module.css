@@ -1,0 +1,21 @@
+.button {
+  cursor: pointer;
+  border: none;
+  border-color: transparent;
+  background-color: var(--blue);
+  border-radius: 12px;
+  min-width: 100px;
+  min-height: 40px;
+
+  color: var(--white);
+  font-weight: 200;
+  font-size: 14px;
+  line-height: 20px;
+
+  transition: background-color var(--transition-pattern);
+}
+
+.button:hover,
+.button:focus {
+  background-color: var(--hover-blue);
+}
