@@ -26,14 +26,16 @@
   display: flex;
   flex-direction: column;
   gap: 28px;
+  max-width: 270px;
 }
 
 .list {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
 
   justify-content: flex-start;
-  column-gap: 6.6px;
+  column-gap: 12px;
   row-gap: 4px;
 }
 
@@ -58,12 +60,12 @@
   position: relative;
 }
 
-.item::after {
+.item:not(:last-child)::after {
   display: inline-block;
   content: '';
   position: absolute;
   top: 0;
-  left: 107%;
+  right: -6px;
   background-color: rgba(18, 20, 23, 0.1);
   height: 16px;
   width: 1px;
