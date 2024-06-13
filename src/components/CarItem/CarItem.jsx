@@ -11,16 +11,10 @@ const CarItem = ({ car }) => {
     model,
     type,
     img,
-    description,
-    fuelConsumption,
-    engineSize,
     accessories,
-    functionalities,
     rentalPrice,
     rentalCompany,
     address,
-    rentalConditions,
-    mileage,
   } = car;
 
   const array = address.split(',');
