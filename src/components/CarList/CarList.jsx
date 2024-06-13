@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import CarItem from '../CarItem/CarItem';
 import { selectCars } from '../../redux/cars/slice';
 import s from './CarList.module.css';
+import LoadMoreBtn from '../LoadMoreBtn/LoadMoreBtn';
 
 const CarList = () => {
   const cars = useSelector(selectCars);
@@ -18,6 +19,7 @@ const CarList = () => {
           );
         })}
       </ul>
+      <LoadMoreBtn />
     </div>
   );
 };

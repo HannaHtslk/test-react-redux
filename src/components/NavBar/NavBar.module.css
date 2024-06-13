@@ -2,7 +2,8 @@
   position: sticky;
   top: 0;
   padding: 20px;
-  background-color: transparent;
+  background-color: rgba(232, 232, 241, 0.542);
+  backdrop-filter: blur(5px);
 }
 
 .nav {

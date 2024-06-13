@@ -60,7 +60,7 @@ const CarItem = ({ car }) => {
                 <p className={s.feature}>{id}</p>
               </li>
               <li className={s.item}>
-                <p className={s.feature}>benefit</p>
+                <p className={s.feature}>{benefit}</p>
               </li>
             </ul>
           </div>

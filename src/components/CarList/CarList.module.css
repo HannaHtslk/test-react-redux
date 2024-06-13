@@ -5,8 +5,7 @@
   row-gap: 50px;
   max-width: 1184px;
   width: 100%;
-  height: calc(100vh - 60px);
-  overflow: scroll;
+  height: auto;
   align-items: center;
   justify-content: center;
 }
