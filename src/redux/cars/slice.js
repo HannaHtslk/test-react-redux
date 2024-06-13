@@ -30,7 +30,7 @@ const initialState = {
     'Chevrolet',
     'Chrysler',
     'Kia',
-    'Land',
+    'Land Rover',
   ],
 };
 
