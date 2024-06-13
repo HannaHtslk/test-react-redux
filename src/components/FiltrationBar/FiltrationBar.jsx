@@ -1,7 +1,7 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { useSelector } from 'react-redux';
 import { selectBrands } from '../../redux/cars/slice';
-import * as Yup from 'yup';
+// import * as Yup from 'yup';
 import s from './FiltrationBar.module.css';
 
 const FiltrationBar = ({ onFilter }) => {
@@ -11,9 +11,9 @@ const FiltrationBar = ({ onFilter }) => {
     carBrand: '',
   };
 
-  const validationSchema = Yup.object({
-    carBrand: Yup.string().required('Please select a car brand'),
-  });
+  // const validationSchema = Yup.object({
+  //   carBrand: Yup.string().required('Please select a car brand'),
+  // });
 
   const onSubmit = values => {
     onFilter(values.carBrand);
@@ -22,7 +22,7 @@ const FiltrationBar = ({ onFilter }) => {
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={validationSchema}
+      // validationSchema={validationSchema}
       onSubmit={onSubmit}
     >
       <Form className={s.searchWrapper}>
