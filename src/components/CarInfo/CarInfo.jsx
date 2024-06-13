@@ -24,19 +24,17 @@ const CarInfo = ({ car }) => {
   const array = address.split(',');
   const city = array[1];
   const country = array[2];
-  const benefit = accessories[0];
+
   return (
     <>
       <div className={s.card}>
         <img className={s.img} src={img} alt={make} />
         <div className={s.content}>
-          <div className={s.model}>
+          <div className={s.block}>
             <p className={s.title}>
-              {make}, {year}
+              {make} {model}, {year}
             </p>
-            <p className={s.title}>{rentalPrice}</p>
-          </div>
-          <div className={s.details}>
+
             <div>
               <ul className={s.list}>
                 <li className={s.item}>
@@ -67,8 +65,58 @@ const CarInfo = ({ car }) => {
                 </li>
               </ul>
             </div>
-            <Button>Rental car</Button>
+            <h4 className={s.descr}>{description}</h4>
           </div>
+          <div className={s.block}>
+            <h4 className={s.heading}>Accessories and functionalities</h4>
+            <div className={s.listWrapper}>
+              <ul className={s.list}>
+                <li className={s.item}>
+                  <p className={s.feature}>{accessories[0]}</p>
+                </li>
+                <li className={s.item}>
+                  <p className={s.feature}>{accessories[1]}</p>
+                </li>
+                <li className={s.item}>
+                  <p className={s.feature}> {accessories[2]}</p>
+                </li>
+              </ul>
+              <ul className={s.list}>
+                <li className={s.item}>
+                  <p className={s.feature}> {functionalities[0]}</p>
+                </li>
+                <li className={s.item}>
+                  <p className={s.feature}> {functionalities[1]}</p>
+                </li>
+                <li className={s.item}>
+                  <p className={s.feature}>{functionalities[2]}</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className={s.block}>
+            <h4 className={s.heading}>Rental Conditions</h4>
+            <div>
+              <ul className={s.list}>
+                <li>
+                  <p>Minimum age:</p>
+                </li>
+                <li></li>
+              </ul>
+              <ul className={s.list}>
+                <li>
+                  <p>{functionalities[0]}</p>
+                </li>
+                <li>
+                  <p>Mileage: {mileage}</p>
+                </li>
+                <li>
+                  <p>Price: {rentalPrice}</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <Button>Rental car</Button>
         </div>
       </div>
     </>
