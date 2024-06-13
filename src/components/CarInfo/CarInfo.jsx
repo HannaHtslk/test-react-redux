@@ -15,7 +15,6 @@ const CarInfo = ({ car }) => {
     accessories,
     functionalities,
     rentalPrice,
-    rentalCompany,
     address,
     rentalConditions,
     mileage,
@@ -25,6 +24,12 @@ const CarInfo = ({ car }) => {
   const city = array[1];
   const country = array[2];
 
+  const conditions = rentalConditions.split('\n');
+  const age = conditions[0];
+  const ageNumber = age.split(' ');
+
+  const formattedMileage = mileage.toLocaleString();
+
   return (
     <>
       <div className={s.card}>
@@ -32,7 +37,7 @@ const CarInfo = ({ car }) => {
         <div className={s.content}>
           <div className={s.block}>
             <p className={s.title}>
-              {make} {model}, {year}
+              {make} <span className={s.span}>{model}</span>, {year}
             </p>
 
             <div>
@@ -96,27 +101,37 @@ const CarInfo = ({ car }) => {
           </div>
           <div className={s.block}>
             <h4 className={s.heading}>Rental Conditions</h4>
-            <div>
+            <div className={s.listWrapper}>
               <ul className={s.list}>
-                <li>
-                  <p>Minimum age:</p>
+                <li className={s.condition}>
+                  <p className={s.name}>
+                    Minimum age: <span className={s.span}>{ageNumber[2]}</span>
+                  </p>
                 </li>
-                <li></li>
+                <li className={s.condition}>
+                  <p className={s.name}>{conditions[1]}</p>
+                </li>
               </ul>
               <ul className={s.list}>
-                <li>
-                  <p>{functionalities[0]}</p>
+                <li className={s.condition}>
+                  <p className={s.name}>{conditions[2]}</p>
                 </li>
-                <li>
-                  <p>Mileage: {mileage}</p>
+                <li className={s.condition}>
+                  <p className={s.name}>
+                    Mileage: <span className={s.span}>{formattedMileage}</span>
+                  </p>
                 </li>
-                <li>
-                  <p>Price: {rentalPrice}</p>
+                <li className={s.condition}>
+                  <p className={s.name}>
+                    Price: <span className={s.span}>{rentalPrice}</span>
+                  </p>
                 </li>
               </ul>
             </div>
           </div>
-          <Button>Rental car</Button>
+          <div>
+            <Button>Rental car</Button>
+          </div>
         </div>
       </div>
     </>
