@@ -9,6 +9,8 @@ import {
 import s from './CarList.module.css';
 import LoadMoreBtn from '../LoadMoreBtn/LoadMoreBtn';
 import { fetchCarsThunk } from '../../redux/cars/operations';
+// import { useState } from 'react';
+// import Modal from '../Modal/Modal';
 
 const CarList = () => {
   const cars = useSelector(selectCars);
@@ -17,6 +19,10 @@ const CarList = () => {
   const page = useSelector(selectPage);
   const limit = useSelector(selectLimit);
   const total = useSelector(selectTotal);
+
+  // const [isOpen, setIsOpen] = useState(false);
+  // const openModal = () => setIsOpen(true);
+  // const closeModal = () => setIsOpen(false);
 
   const onLoadMore = () => {
     dispatch(fetchCarsThunk({ page: page + 1, limit }));
@@ -29,10 +35,12 @@ const CarList = () => {
           return (
             <li className={s.item} key={car.id}>
               <CarItem car={car} />
+              {/* openModal={openModal} */}
             </li>
           );
         })}
       </ul>
+      {/* {isOpen && <Modal onClose={closeModal} />} */}
       {cars.length > 0 && cars.length < total && (
         <LoadMoreBtn onLoadMore={onLoadMore} />
       )}

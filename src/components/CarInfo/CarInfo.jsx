@@ -1,9 +1,7 @@
-import { useState } from 'react';
 import Button from '../Button/Button';
-import Modal from '../Modal/Modal';
-import s from './CarItem.module.css';
+import s from './CarInfo.module.css';
 
-const CarItem = ({ car }) => {
+const CarInfo = ({ car }) => {
   const {
     id,
     year,
@@ -27,11 +25,6 @@ const CarItem = ({ car }) => {
   const city = array[1];
   const country = array[2];
   const benefit = accessories[0];
-
-  const [isOpen, setIsOpen] = useState(false);
-  const openModal = () => setIsOpen(true);
-  const closeModal = () => setIsOpen(false);
-
   return (
     <>
       <div className={s.card}>
@@ -53,31 +46,33 @@ const CarItem = ({ car }) => {
                   <p className={s.feature}>{country}</p>
                 </li>
                 <li className={s.item}>
-                  <p className={s.feature}>{rentalCompany}</p>
+                  <p className={s.feature}>Id: {id}</p>
+                </li>
+                <li className={s.item}>
+                  <p className={s.feature}>Year: {year}</p>
+                </li>
+                <li className={s.item}>
+                  <p className={s.feature}>Type: {type}</p>
                 </li>
               </ul>
               <ul className={s.list}>
                 <li className={s.item}>
-                  <p className={s.feature}>{type}</p>
+                  <p className={s.feature}>
+                    Fuel Consumption: {fuelConsumption}
+                  </p>
                 </li>
+
                 <li className={s.item}>
-                  <p className={s.feature}>{model}</p>
-                </li>
-                <li className={s.item}>
-                  <p className={s.feature}>{id}</p>
-                </li>
-                <li className={s.item}>
-                  <p className={s.feature}>{benefit}</p>
+                  <p className={s.feature}>Engine Size: {engineSize}</p>
                 </li>
               </ul>
             </div>
-            <Button openModal={openModal}>Learn more</Button>
+            <Button>Rental car</Button>
           </div>
         </div>
       </div>
-      {isOpen && <Modal onClose={closeModal} car={car} />}
     </>
   );
 };
 
-export default CarItem;
+export default CarInfo;
