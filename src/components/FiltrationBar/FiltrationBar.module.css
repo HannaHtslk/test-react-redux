@@ -5,7 +5,8 @@
   background-color: var(--blue);
   border-radius: 12px;
   min-width: 100px;
-  min-height: 40px;
+  min-height: 48px;
+  padding: 14px 40px;
 
   color: var(--white);
   font-weight: 200;
@@ -48,8 +49,9 @@
   border: none;
   border-radius: 14px;
   background: #f7f7fb;
-  padding: 14px 18px 14px 18px;
+  padding: 0px 18px;
 
+  min-height: 48px;
   outline: none;
 }
 

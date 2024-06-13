@@ -8,7 +8,7 @@ const FiltrationBar = ({ onFilter }) => {
   const carBrand = useSelector(selectBrands);
 
   const initialValues = {
-    carBrand: carBrand[0],
+    carBrand: '',
   };
 
   const validationSchema = Yup.object({
@@ -31,6 +31,9 @@ const FiltrationBar = ({ onFilter }) => {
             Car Brand
           </label>
           <Field className={s.select} as="select" id="carBrand" name="carBrand">
+            <option className={s.make} value="" disabled>
+              Enter the text
+            </option>
             {carBrand.map(brand => (
               <option className={s.make} key={brand} value={brand}>
                 {brand}
