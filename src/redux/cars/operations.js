@@ -3,12 +3,14 @@ import advertApi from '../../config/advertApi';
 
 export const fetchCarsThunk = createAsyncThunk(
   'cars / fetchAll',
-  async (_, thunkApi) => {
+  async ({ page = 1, limit = 12 }, thunkApi) => {
     try {
-      const { data } = await advertApi.get('/advert');
+      const { data } = await advertApi.get('/advert', {
+        params: { page, limit },
+      });
       console.log(data);
 
-      return data;
+      return { data, page, limit };
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }
