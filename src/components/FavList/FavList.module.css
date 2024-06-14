@@ -13,3 +13,26 @@
 .item {
   width: calc((100% - 87px) / 4);
 }
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.link {
+  color: var(--gray);
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  text-decoration: none;
+  transition: color var(--transition-pattern);
+}
+
+.link:hover,
+.link:focus {
+  color: var(--hover-blue);
+}
