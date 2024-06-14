@@ -5,6 +5,7 @@ import { fetchCarsThunk } from '../../redux/cars/operations';
 import {
   selectCars,
   selectFilteredCars,
+  selectIsLoading,
   selectLimit,
   setFilteredCars,
   setTotal,
@@ -19,6 +20,7 @@ const Catalog = () => {
   const selectedBrand = useSelector(selectBrand);
   const cars = useSelector(selectCars);
   const filteredCars = useSelector(selectFilteredCars);
+  const isLoading = useSelector(selectIsLoading);
 
   useEffect(() => {
     dispatch(fetchCarsThunk({ page: 1, limit }));
@@ -41,6 +43,7 @@ const Catalog = () => {
   return (
     <div className={s.container}>
       <FiltrationBar onFilter={handleFilter} />
+      {isLoading && <p className={s.loader}>Loading...</p>}
       <CarList cars={filteredCars} />
     </div>
   );
