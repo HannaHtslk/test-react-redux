@@ -1,4 +1,3 @@
-import Button from '../Button/Button';
 import s from './CarInfo.module.css';
 
 const CarInfo = ({ car }) => {
@@ -130,7 +129,9 @@ const CarInfo = ({ car }) => {
             </div>
           </div>
           <div>
-            <Button>Rental car</Button>
+            <a className={s.rent} href="tel:+380730000000">
+              Rental car
+            </a>
           </div>
         </div>
       </div>

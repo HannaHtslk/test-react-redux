@@ -118,3 +118,24 @@
   font-weight: 400;
   line-height: 18px;
 }
+
+.rent {
+  cursor: pointer;
+  border: none;
+  border-color: transparent;
+  background-color: var(--blue);
+  border-radius: 12px;
+
+  padding: 12px 50px;
+  color: var(--white);
+  font-weight: 200;
+  font-size: 14px;
+  line-height: 20px;
+  text-decoration: none;
+  transition: background-color var(--transition-pattern);
+}
+
+.rent:hover,
+.rent:focus {
+  background-color: var(--hover-blue);
+}
