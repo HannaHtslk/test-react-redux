@@ -54,6 +54,9 @@ const carsSlice = createSlice({
     setTotal: (state, action) => {
       state.total = action.payload;
     },
+    setPage: (state, action) => {
+      state.page = action.payload;
+    },
   },
   extraReducers: builder => {
     builder

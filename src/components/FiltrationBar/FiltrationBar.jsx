@@ -1,53 +1,39 @@
-import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { useSelector } from 'react-redux';
 import { selectBrands } from '../../redux/cars/slice';
-// import * as Yup from 'yup';
+
 import s from './FiltrationBar.module.css';
+import Select from 'react-select';
+import { FiltrationBarStyles } from './FiltrationBarStyles';
+import { useState } from 'react';
 
 const FiltrationBar = ({ onFilter }) => {
-  const carBrand = useSelector(selectBrands);
+  const carBrands = useSelector(selectBrands);
+  const [selectedBrand, setSelectedBrand] = useState(null);
 
-  const initialValues = {
-    carBrand: '',
+  const carOptions = carBrands.map(brand => ({ value: brand, label: brand }));
+
+  const handleChange = selectedOption => {
+    setSelectedBrand(selectedOption);
   };
 
-  // const validationSchema = Yup.object({
-  //   carBrand: Yup.string().required('Please select a car brand'),
-  // });
-
-  const onSubmit = values => {
-    onFilter(values.carBrand);
+  const handleSubmit = () => {
+    if (selectedBrand) {
+      onFilter(selectedBrand.value);
+    }
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      // validationSchema={validationSchema}
-      onSubmit={onSubmit}
-    >
-      <Form className={s.searchWrapper}>
-        <div className={s.form}>
-          <label className={s.label} htmlFor="carBrand">
-            Car Brand
-          </label>
-          <Field className={s.select} as="select" id="carBrand" name="carBrand">
-            <option className={s.make} value="" disabled>
-              Enter the text
-            </option>
-            {carBrand.map(brand => (
-              <option className={s.make} key={brand} value={brand}>
-                {brand}
-              </option>
-            ))}
-          </Field>
-          <ErrorMessage name="carBrand" component="div" className="error" />
-        </div>
-
-        <button className={s.submitBtn} type="submit">
-          Search
-        </button>
-      </Form>
-    </Formik>
+    <div className={s.searchWrapper}>
+      <Select
+        options={carOptions}
+        onChange={handleChange}
+        styles={FiltrationBarStyles}
+        placeholder={'Enter the text'}
+      />
+      <button onClick={handleSubmit} className={s.submitBtn} type="submit">
+        Search
+      </button>
+    </div>
   );
 };
 

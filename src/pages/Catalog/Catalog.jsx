@@ -3,7 +3,6 @@ import CarList from '../../components/CarList/CarList';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCarsThunk } from '../../redux/cars/operations';
 import {
-  selectBrands,
   selectCars,
   selectFilteredCars,
   selectLimit,
@@ -12,26 +11,36 @@ import {
 } from '../../redux/cars/slice';
 import FiltrationBar from '../../components/FiltrationBar/FiltrationBar';
 import s from './Catalog.module.css';
+import { selectBrand, setSelectedBrand } from '../../redux/filter/slice';
 
 const Catalog = () => {
   const dispatch = useDispatch();
   const limit = useSelector(selectLimit);
-  const carBrand = useSelector(selectBrands);
-  const filteredCars = useSelector(selectFilteredCars);
+  const selectedBrand = useSelector(selectBrand);
   const cars = useSelector(selectCars);
+  const filteredCars = useSelector(selectFilteredCars);
 
   useEffect(() => {
     dispatch(fetchCarsThunk({ page: 1, limit }));
   }, [dispatch, limit]);
 
-  const handleFilter = carBrand => {
-    const filtered = cars.filter(car => car.make === carBrand);
-    dispatch(setFilteredCars(filtered));
-    dispatch(setTotal(filtered.length));
+  useEffect(() => {
+    if (selectedBrand) {
+      const filtered = cars.filter(car => car.make === selectedBrand);
+      dispatch(setFilteredCars(filtered));
+      dispatch(setTotal(filtered.length));
+    } else {
+      dispatch(setFilteredCars(cars));
+    }
+  }, [selectedBrand, cars, dispatch]);
+
+  const handleFilter = brand => {
+    dispatch(setSelectedBrand(brand));
   };
+
   return (
     <div className={s.container}>
-      <FiltrationBar onFilter={handleFilter} carBrand={carBrand} />
+      <FiltrationBar onFilter={handleFilter} />
       <CarList cars={filteredCars} />
     </div>
   );
