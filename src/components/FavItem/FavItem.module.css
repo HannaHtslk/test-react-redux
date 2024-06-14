@@ -71,23 +71,3 @@
   height: 16px;
   width: 1px;
 }
-
-.icon {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  color: rgba(255, 255, 255, 0.95);
-  width: 18px;
-  height: 18px;
-}
-
-.btn {
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-}
-
-.iconLiked {
-  composes: icon;
-  color: var(--blue);
-}

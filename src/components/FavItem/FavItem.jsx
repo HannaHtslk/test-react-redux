@@ -1,18 +1,10 @@
 import { useState } from 'react';
-import Button from '../Button/Button';
 import Modal from '../Modal/Modal';
-import s from './CarItem.module.css';
-import { IoMdHeartEmpty } from 'react-icons/io';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  addToFavorites,
-  removeFromFavorites,
-  selectFavorites,
-} from '../../redux/favorites/slice';
-import { IoHeart } from 'react-icons/io5';
+import Button from '../Button/Button';
+import s from './FavItem.module.css';
 
-const CarItem = ({ car }) => {
-  console.log(car);
+const FavItem = ({ fav }) => {
+  console.log(fav);
   const {
     id,
     year,
@@ -24,43 +16,23 @@ const CarItem = ({ car }) => {
     rentalPrice,
     rentalCompany,
     address,
-  } = car;
+  } = fav;
 
   const array = address.split(',');
   const city = array[1];
   const country = array[2];
   const benefit = accessories[0];
 
+  console.log(fav);
   const [isOpen, setIsOpen] = useState(false);
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
 
-  const favorites = useSelector(selectFavorites);
-  const isFavorite = favorites.some(favorite => favorite.id === id);
-
-  const dispatch = useDispatch();
-
-  const toggleFavorite = () => {
-    if (isFavorite) {
-      dispatch(removeFromFavorites(id));
-    } else {
-      dispatch(addToFavorites(car));
-    }
-  };
-  {
-    !car && <p>Loading...</p>;
-  }
   return (
     <>
       <div className={s.card}>
         <img className={s.img} src={img} alt={make} />
-        <button onClick={toggleFavorite} className={s.btn} type="button">
-          {isFavorite ? (
-            <IoHeart className={s.iconLiked} />
-          ) : (
-            <IoMdHeartEmpty className={s.icon} />
-          )}
-        </button>
+
         <div className={s.content}>
           <div className={s.model}>
             <p className={s.title}>
@@ -100,9 +72,9 @@ const CarItem = ({ car }) => {
           </div>
         </div>
       </div>
-      {isOpen && <Modal onClose={closeModal} car={car} />}
+      {isOpen && <Modal onClose={closeModal} car={fav} />}
     </>
   );
 };
 
-export default CarItem;
+export default FavItem;
