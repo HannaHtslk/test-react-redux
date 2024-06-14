@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchCarsThunk } from './operations';
+import toast from 'react-hot-toast';
 
 const initialState = {
   cars: [],
@@ -77,6 +78,7 @@ const carsSlice = createSlice({
       .addCase(fetchCarsThunk.rejected, (state, { payload }) => {
         state.isError = payload;
         state.isLoading = false;
+        toast.error('Oops, something went wrong')
       });
   },
 });

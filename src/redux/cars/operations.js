@@ -8,7 +8,7 @@ export const fetchCarsThunk = createAsyncThunk(
       const { data } = await advertApi.get('/advert', {
         params: { page, limit },
       });
-      console.log(data);
+
 
       return { data, page, limit };
     } catch (error) {

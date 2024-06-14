@@ -12,7 +12,6 @@ import {
 import { IoHeart } from 'react-icons/io5';
 
 const CarItem = ({ car }) => {
-  console.log(car);
   const {
     id,
     year,

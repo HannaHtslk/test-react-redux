@@ -6,7 +6,6 @@ import LoadMoreBtn from '../LoadMoreBtn/LoadMoreBtn';
 import { fetchCarsThunk } from '../../redux/cars/operations';
 
 const CarList = ({ cars }) => {
-  console.log(cars);
   const dispatch = useDispatch();
   const page = useSelector(selectPage);
   const limit = useSelector(selectLimit);
